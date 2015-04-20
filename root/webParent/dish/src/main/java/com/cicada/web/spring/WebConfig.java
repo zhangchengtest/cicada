@@ -49,11 +49,6 @@ public class WebConfig extends ServiceContainer {
 
 		System.out.println("AllInterceptor");
 
-		/*
-		 * registry.addInterceptor(new LocaleInterceptor()); registry.addInterceptor(new
-		 * ThemeInterceptor()).addPathPatterns("/**").excludePathPatterns("/admin/**"); registry.addInterceptor(new
-		 * SecurityInterceptor()).addPathPatterns("/secure/*");
-		 */
 	}
 
 	@Override
