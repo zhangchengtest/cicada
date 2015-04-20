@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- https://ibatis.apache.org/docs/dotnet/datamapper/ch03s03.html -->
+
+<mapper namespace="com.cicada.dao.menu.MenuDao">
+
+	<!-- result maps -->
+	<resultMap id="menuMap" type="Menu">
+		<id column="menu_id" property="ID" />
+		<result column="menu_name" property="name" />
+		<result column="menu_key" property="key" />
+		<result column="parent_id" property="parentId" />
+		<result column="webapp_id" property="webapp" />
+		<result column="css_class" property="css" />
+		<result column="linkurl" property="link" />
+		<result column="haschild" property="hasChild" />
+		<result column="sortorder" property="sortOrder" />
+		<result column="status" property="status" />
+		
+		<result column="create_date" property="createDate" jdbcType="TIMESTAMP" javaType="Date" />
+		<result column="update_date" property="updateDate" jdbcType="TIMESTAMP" javaType="Date" />
+	</resultMap>
+
+	<insert id="insert" parameterType="Menu" >
+		INSERT INTO menu 
+				(menu_id,  menu_name, menu_key, parent_id, webapp_id, css_class, linkurl, haschild, sortorder, status, create_date, update_date)
+		VALUES (#{ID},  #{name},
+				#{key}, #{parentId}, #{webapp}, #{css},#{link}, #{hasChild}, #{sortOrder}, #{status},#{createDate}, #{updateDate})
+	</insert>
+
+	<sql id="defaultSelect">
+		SELECT  *
+		 FROM menu 
+	</sql>
+	
+	<select id="selectOne" parameterType="string" resultMap="menuMap">
+		<include refid="defaultSelect" />
+		 	WHERE menu.menu_id = #{ID}
+	</select>
+	
+	<select id="selectBy" resultMap="menuMap">
+		<include refid="defaultSelect" />
+		<where>
+			<if test="filterEntity!=null">
+				<if test="filterEntity.ID !=null">
+					menu_id = #{filterEntity.ID}
+				</if>
+				<if test="filterEntity.webapp !=null">
+					webapp_id = #{filterEntity.webapp}
+				</if>
+			</if>
+		</where>
+		LIMIT #{startIndex}, #{fetchRows}
+	</select>
+	<select id="selectAll" resultMap="menuMap">
+		<include refid="defaultSelect" />
+	</select>
+
+	<sql id="defaultCount">
+		SELECT count(*) FROM menu
+	</sql>
+	<select id="countBy"  resultType="int">
+		<include refid="defaultCount" />
+		<where>
+			<if test="filterEntity!=null">
+				<if test="filterEntity.ID !=null">
+					menu_id = #{filterEntity.ID}
+				</if>
+				<if test="filterEntity.webapp !=null">
+					webapp_id = #{filterEntity.webapp}
+				</if>
+			</if>
+		</where>
+	</select>
+	<select id="countAll" resultType="int">
+		<include refid="defaultCount" />
+	</select>
+
+
+	<update id="update" parameterType="Menu" >
+		update menu 
+	    <set>
+	      <if test="name != null">menu_name = #{name},</if>
+	       <if test="key != null">menu_key = #{key},</if>
+	      <if test="createDate != null">create_date = #{createDate},</if>
+	      <if test="updateDate != null">update_date = #{updateDate},</if>
+	    </set>
+		where menu_id = #{ID}
+	</update>
+	
+	<delete id="delete" parameterType="string" >
+		DELETE FROM menu WHERE menu_id = #{ID}
+	</delete>
+	
+
+</mapper>

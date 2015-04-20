@@ -1,0 +1,33 @@
+<div class="row-fluid">
+
+	<div class="span6">
+		<div class="dataTables_paginate paging_bootstrap pagination">
+			<ul>
+#if(${currpagenum} > 1)
+	
+	#set($prepagenum = (${currpagenum} - 1) + "")
+	<li class="prev"><a href="${url.replace("@pagenum", $prepagenum)}">Prev</a></li>
+#end
+
+
+#foreach($offsetpagenum in ${offsetpagenums})
+	#if(${offsetpagenum} == ${currpagenum})
+      <li class="active"> <span >${offsetpagenum}</span></li>
+	#else
+		#set($temp = $offsetpagenum + "")
+		<li ><a href="${url.replace("@pagenum", $temp)}">${offsetpagenum}</a></li>
+	#end
+#end
+
+
+#if(${currpagenum} < ${totalpages})
+	#set($nextpagenum = (${currpagenum} + 1) + "")
+	<li class="next"><a href="${url.replace("@pagenum", $nextpagenum)}">Next</a></li>
+	#set($totalpagenum = $totalpages + "")
+#end
+
+    	</ul>
+	  </div>
+	  
+	</div>
+</div>

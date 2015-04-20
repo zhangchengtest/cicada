@@ -1,0 +1,50 @@
+ #set($page_title = "Message Tip")
+ #set($page_header = "Message Tip")
+ <div class="row-fluid">
+                            <div class="span12">
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="alert alert-block alert-success fade in">
+                                    <button data-dismiss="alert" class="close" type="button"></button>
+                                    <h4 class="alert-heading">
+										#if($!{map.message.code})
+										
+											#springMessageText(${map.message.code}, ${map.message.defaultMsg})
+										
+										#else
+											$!{map.message}
+										#end
+										
+									</h4>
+                                    <script>
+            						var time= 2;						
+            						var sTarget = '${map.target}';
+            						var timer =	setInterval(function(){
+            							if (time > 0)
+            							{
+            								document.getElementById("timeGap").innerHTML = '<font color="red">'+time+'</font>' ;														
+            							}
+            							else 
+            							{
+            								if(sTarget == '_parent')
+            								{
+            									parent.location.href='${map.refererURL}';
+            									clearInterval(timer);
+            								}
+            								else
+            								{
+            									 parent.content.location.href='$rc.contextPath'+'${map.refererURL}';
+            									clearInterval(timer);
+            								}
+            							}
+            							time--;
+            						}, 1000);
+									</script>
+                                    <p>
+										<span id="timeGap"><font color="red">2</font></span>秒后返回 ， 如果没有浏览器自动跳转，请点此<a href="$!{rc.contextPath}${map.refererURL}">&nbsp;<font color=red>返回</font></a>。
+										</span>
+									</p>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                            </div>
+                        </div>
+                        <!-- END PAGE CONTENT -->

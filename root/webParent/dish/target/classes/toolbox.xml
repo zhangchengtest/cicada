@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<toolbox>
+	<tool>
+		<key>dateUtils</key>
+		<scope>application</scope>
+		<class>com.cicada.utils.DateUtils</class>
+	</tool>
+	<tool>
+		<key>currencyTag</key>
+		<scope>application</scope>
+		<class>com.cicada.web.velocity.CurrencyTag</class>
+	</tool>
+</toolbox>

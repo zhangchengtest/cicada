@@ -1,0 +1,38 @@
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link href="$!{rc.contextPath}/skin/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="$!{rc.contextPath}/skin/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="$!{rc.contextPath}/skin/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="$!{rc.contextPath}/skin/css/style-metro.css" rel="stylesheet" type="text/css"/>
+	<link href="$!{rc.contextPath}/skin/css/common.css" rel="stylesheet" type="text/css"/>
+	<link href="$!{rc.contextPath}/skin/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="$!{rc.contextPath}/skin/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+	<link href="$!{rc.contextPath}/skin/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+	<!-- END GLOBAL MANDATORY STYLES -->
+	<!-- BEGIN PAGE LEVEL STYLES -->
+	<link rel="stylesheet" type="text/css" href="$!{rc.contextPath}/skin/css/select2_metro.css" />
+	<link rel="stylesheet" href="$!{rc.contextPath}/skin/css/DT_bootstrap.css" />
+	<!-- END PAGE LEVEL STYLES -->
+	<link rel="shortcut icon" href="$!{rc.contextPath}/assets/img/favicon.ico" />
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	<!-- BEGIN CORE PLUGINS -->
+	
+	<script src="$rc.contextPath/skin/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="$rc.contextPath/skin/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<script src="$rc.contextPath/skin/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+	
+	<script src="$rc.contextPath/skin/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="$rc.contextPath/skin/js/jquery.uniform.min.js" type="text/javascript" ></script>
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="$!{rc.contextPath}/skin/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="$!{rc.contextPath}/skin/js/app.js"></script>
+	<script>
+		jQuery(document).ready(function() {       
+		   App.init();
+		});
+	</script>
+	<script>
+		var locale = '$!rc.locale';
+		var contextPath = '$!{rc.contextPath}';
+	</script>
+	
+	

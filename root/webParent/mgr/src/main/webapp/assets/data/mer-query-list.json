@@ -1,0 +1,199 @@
+[
+    {
+        "id": 0,
+        "mid": "MID000001",
+        "name": "360 buy",
+		"branch":"CHN Branch",
+		"industry":"General",
+		"regdate":"2015/3/20",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+        "id": 1,
+        "mid": "MID000002",
+        "name": "QIHU 360",
+		"branch":"CHN Branch",
+		"industry":"Data security",
+		"regdate":"2015/1/12",
+		"agent":"AG002",
+		"salesid":"SL002",
+		"status":1
+    },
+    {
+        "id": 2,
+        "mid": "MID000003",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Data security",
+		"regdate":"2015/1/11",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+        "id": 3,
+        "mid": "MID000004",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Data security",
+		"regdate":"2015/1/11",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+       "id": 4,
+        "mid": "MID000005",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Data security",
+		"regdate":"2015/1/11",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+        "id": 5,
+        "mid": "MID000006",
+        "name": "Letian Korea",
+		"branch":"JP Branch",
+		"industry":"Super market",
+		"regdate":"2015/1/10",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+        "id": 7,
+        "mid": "MID000008",
+        "name": "Sakuka JP",
+		"branch":"JP Branch",
+		"industry":"General",
+		"regdate":"2015/1/11",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+       "id": 8,
+        "mid": "MID000009",
+        "name": "New egg USA ",
+		"branch":"US Branch",
+		"industry":"General",
+		"regdate":"2015/1/10",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+        "id": 9,
+        "mid": "MID0000010",
+        "name": "Amazone US ",
+		"branch":"US Branch",
+		"industry":"General",
+		"regdate":"2015/1/11",
+		"agent":"AG001",
+		"salesid":"SL001",
+		"status":1
+    },
+    {
+        "id": 10,
+        "mid": "MID000011",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 11,
+        "mid": "MID000012",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+       "id": 12,
+        "mid": "MID000013",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 13,
+        "mid": "MID000014",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 14,
+        "mid": "MID000015",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 15,
+        "mid": "MID000016",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+       "id": 16,
+        "mid": "MID000017",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 17,
+        "mid": "MID000018",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+       "id": 18,
+        "mid": "MID000019",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 19,
+        "mid": "MID000020",
+        "name": "Monste digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 20,
+        "mid": "MID000021",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    },
+    {
+        "id": 21,
+        "mid": "MID000022",
+        "name": "Monster digital ltd. ",
+		"branch":"US Branch",
+		"industry":"Security",
+		"regdate":"2015/1/11"
+    }
+	
+	
+]

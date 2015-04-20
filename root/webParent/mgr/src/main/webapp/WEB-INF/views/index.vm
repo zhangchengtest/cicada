@@ -1,0 +1,8 @@
+ #set($page_title = "Dashboard")
+ #set($page_header = "Dashboard")
+ <input type="hidden" id="liId" value="0" >
+<div class="page-body">
+	<div class="row">
+		#springMessage("screen.index.welome"), $!session.getAttribute("userContext").name
+	</div>
+</div>

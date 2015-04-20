@@ -1,0 +1,10 @@
+#macro(invoke $page)
+    #if($page.startsWith("/"))
+        #parse($page)
+    #else
+        #set($uri = $request.getAttribute("javax.servlet.include.request_uri"))
+        #if(!$uri)#set($uri = $request.getServletPath())#end
+        #set($path = $uri.substring(0, $uri.lastIndexOf("/")))
+        #parse("$path/$page")
+    #end
+#end

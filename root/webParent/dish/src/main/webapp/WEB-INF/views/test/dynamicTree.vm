@@ -1,0 +1,57 @@
+ <link rel="stylesheet" href="$!{rc.contextPath}/assets/js/jsTree/dist/themes/proton/style.css" />
+    <link rel="stylesheet" href="$!{rc.contextPath}/assets/js/jsTree/docs.css" />
+    <!--[if lt IE 9]><script src="./assets/respond.js"></script><![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" href="$!{rc.contextPath}/assets/js/jsTree/apple-touch-icon-precomposed.png" />
+    <script src="$!{rc.contextPath}/assets/js/jsTree/dist/jstree.min.js"></script>
+
+    <style>
+        .proton-demo{
+            max-width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+        }
+    </style>
+<div class="col-md-4">
+                        <div id="jstree-proton-3" style="margin-top:20px;" class="proton-demo"></div>
+                        </div>
+						  <button type="button" class="btn btn-default" id="saveButton">save</button>
+ <script>
+  jQuery.ajax({
+            url: contextPath + "/treeData",
+			dataType: "json",
+            success: function (data) {
+				assembleTree(data);
+            }
+	});
+	function assembleTree(data)
+	{
+		 $('#jstree-proton-3').jstree({
+            'plugins': ["wholerow", "checkbox"],
+            'core': {
+                 'data': data,
+                'themes': {
+                    'name': 'proton',
+                    'responsive': true
+                }
+            }
+        });
+	}
+	
+		$("#saveButton").click(function(){
+				var checkedBox = $("#jstree-proton-3").find(".jstree-clicked");
+				var rights = "";
+        		for(var i = 0; i < checkedBox.length; i++)
+        		{
+					if($(checkedBox[i]).find(".glyphicon").length != 0)
+					{
+						rights += $(checkedBox[i]).parent().attr("id");
+        				if(i != checkedBox.length -1 )
+        				{
+        					rights += ","
+        				}
+					}
+        		}
+				alert(rights);
+			});
+    </script>

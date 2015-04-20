@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <script src="$rc.contextPath/skin/js/jquery-1.7.2.js" type="text/javascript"></script>
+   </head>
+   <body>
+	#parse("extra.vm")
+   	hello $!{name}, I am vm 
+	你好，我是张成
+</body>
+</html>

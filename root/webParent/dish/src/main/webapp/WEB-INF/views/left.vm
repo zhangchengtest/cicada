@@ -1,0 +1,124 @@
+<div class="page-sidebar nav-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->        
+    <ul class="page-sidebar-menu">
+        <li>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <li class="start " id="01">
+            <a href="$!rc.contextPath">
+                <i class="icon-home"></i>
+                <span class="title">#springMessage("screen.left.home")</span>
+            </a>
+        </li>
+        #cache("sideBar", $!{cacheUpdate})
+            <li id="02">
+                <a href="javascript:;">
+                    <i class="icon-cogs"></i>
+                    <span class="title">#springMessage("screen.left.channel")</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                  
+                        <li  id="0201">
+                            <a href="$!rc.contextPath/channel/list" >
+                                #springMessage("screen.left.channel.channel")</a>
+                        </li>
+                   
+                  
+                        <li id="0202">
+                            <a href="$!rc.contextPath/acquirer/list" >
+                                Acquirer</a>
+                        </li>
+                   
+                    <li id="0203">
+                        <a href="$!rc.contextPath/channelProvider/list">
+                            Channel Provider</a>
+                    </li>
+                    <li id="0204">
+                        <a href="$rc.contextPath/bank/list">
+                            Bank</a>
+                    </li>
+                    <li id="0205">
+                        <a href="$rc.contextPath/bankAccount/list">
+                            BankAccount</a>
+                    </li>
+                </ul>
+            </li>
+        <li id="03">
+            <a href="javascript:;">
+                <i class="icon-cogs"></i>
+                <span class="title">#springMessage("screen.left.infrastructure")</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li id="0301">
+                    <a href="$!rc.contextPath/auditLog/list">#springMessage("screen.left.infrastructure.auditLog")</a>
+                </li>
+				<li id="0302">
+                    <a href="$!rc.contextPath/userManager/list">#springMessage("screen.left.infrastructure.userManager")</a>
+                </li>
+            </ul>
+        </li>
+		<li id="04">
+			<a href="javascript:;">
+                <i class="icon-cogs"></i>
+                <span class="title">Transaction</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li id="0401">
+                    <a href="$!rc.contextPath/merTxn/list">MerchantTransaction</a>
+                </li>
+            </ul>
+        </li>
+		<li id="05">
+			<a href="javascript:;">
+                <i class="icon-cogs"></i>
+                <span class="title">Permission</span>
+                <span class="arrow"></span>
+			</a>
+			<ul class="sub-menu">
+                <li id="0501">
+					<a href="$!rc.contextPath/permission/listPermissionRole">PermissionRole</a>
+				</li>
+            </ul>
+        </li>
+		<li id="06">
+			<a href="javascript:;">
+                <i class="icon-cogs"></i>
+                <span class="title">Merchant</span>
+                <span class="arrow"></span>
+			</a>
+			<ul class="sub-menu">
+                <li id="0601">
+					<a href="$!rc.contextPath/merchant/cr_page">Add</a>
+				</li>
+				<li id="0602">
+					<a href="$!rc.contextPath/merchant/list">List</a>
+				</li>
+            </ul>
+        </li>
+	#end
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>
+<script>
+    var liId = $("#liId").val();
+    var lis = $(".page-sidebar").find("li");
+    var li;
+    for(var i = 0; i < lis.size(); i++)
+        {
+        li = lis.get(i);
+        if($(li).attr("id") == liId)
+        {
+            $(li).attr("class","active");
+            if(liId.length == 4)
+            {
+            	$(li).parent().parent().attr("class","active");
+            }
+        }
+		
+        }
+</script>

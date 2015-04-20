@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>Application Account</title>
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link rel="stylesheet" type="text/css" href="$rc.contextPath/skin/css/select2_metro.css" />
+	<link rel="stylesheet" type="text/css" href="$rc.contextPath/skin/css/chosen.css" />
+	#parse("common.vm")
+    <script type="text/javascript">
+		function valid() {
+			if($("#usernameDiv").hasClass("error") == -1) {
+				$.ajax({
+                	type:"GET",
+                   	url:"$rc.contextPath/user/validName",
+                   	data:"userName="+$("#username").val() + "&type=apply",
+                   	success:function(msg){
+						var msgRe = eval("("+msg+")");
+						if(msgRe.msg == "error") {
+							$("#usernameDiv").removeClass("success");
+							$("#usernameDiv").addClass("error");
+							var errorStr = "<span class='validate-inline' for='username'>"+msgRe.data+"</span>";
+							$("#usernameError").html(errorStr);
+							$("#continue").hide();
+						} else {
+							$("#usernameError").html("");
+							$("#continue").show();
+						}
+                   	},
+					error:function (msg) {
+						alert('fail');
+                    }
+                });
+			}
+		}
+	</script>
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+
+	<!-- BEGIN CONTAINER -->
+
+		<!-- BEGIN PAGE -->  
+
+		<div class="page">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->   
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<h3 class="page-title">
+
+							Form Wizard
+
+							 <small>Application Account</small>
+
+						</h3>
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<!-- BEGIN PAGE CONTENT-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<div class="portlet box blue" id="form_wizard_1">
+
+							<div class="portlet-title">
+
+								<div class="caption">
+
+									<i class="icon-reorder"></i> Wizard - <span class="step-title">Step 1 of 4</span>
+
+								</div>
+
+							</div>
+
+							<div class="portlet-body form">
+
+								<form action="$rc.contextPath/user/create" method="post" class="form-horizontal" id="submit_form">
+
+									<div class="form-wizard">
+
+										<div class="navbar steps">
+
+											<div class="navbar-inner">
+
+												<ul class="row-fluid">
+
+													<li class="span3">
+
+														<a href="#tab1" data-toggle="tab" class="step active">
+
+														<span class="number">1</span>
+
+														<span class="desc"><i class="icon-ok"></i> Account Setup</span>   
+
+														</a>
+
+													</li>
+
+													<li class="span3">
+
+														<a href="#tab2" data-toggle="tab" class="step">
+
+														<span class="number">2</span>
+
+														<span class="desc"><i class="icon-ok"></i> Profile Setup</span>   
+
+														</a>
+
+													</li>
+
+													<li class="span3">
+
+														<a href="#tab3" data-toggle="tab" class="step">
+
+														<span class="number">3</span>
+
+														<span class="desc"><i class="icon-ok"></i> Security Setup</span>   
+
+														</a>
+
+													</li>
+
+													<li class="span3">
+
+														<a href="#tab4" data-toggle="tab" class="step">
+
+														<span class="number">4</span>
+
+														<span class="desc"><i class="icon-ok"></i> Confirm</span>   
+
+														</a> 
+
+													</li>
+
+												</ul>
+
+											</div>
+
+										</div>
+
+										<div id="bar" class="progress progress-success progress-striped">
+
+											<div class="bar"></div>
+
+										</div>
+
+										<div class="tab-content">
+
+											<div class="alert alert-error hide">
+
+												<button class="close" data-dismiss="alert"></button>
+
+												You have some form errors. Please check below.
+
+											</div>
+
+											<div class="alert alert-success hide">
+
+												<button class="close" data-dismiss="alert"></button>
+
+												Your form validation is successful!
+
+											</div>
+
+											<div class="tab-pane active" id="tab1">
+
+												<h3 class="block">Provide your account details</h3>
+
+												<div class="control-group" id="usernameDiv">
+
+													<label class="control-label">Username<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="text" class="span6 m-wrap" onblur="javascript:valid();" id="username" name="username"/>
+														<span class="help-inline">Provide your username</span>
+                                                        <div id="usernameError"></div>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Password<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="password" class="span6 m-wrap" name="password" id="submit_form_password"/>
+
+														<span class="help-inline">Provide your password</span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Confirm Password<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="password" class="span6 m-wrap" name="rpassword"/>
+
+														<span class="help-inline">Confirm your password</span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Email<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="text" class="span6 m-wrap" name="email"/>
+
+														<span class="help-inline">Provide your email address</span>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="tab-pane" id="tab2">
+
+												<h3 class="block">Provide your profile details</h3>
+
+												<div class="control-group">
+
+													<label class="control-label">FirstName<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="text" class="span6 m-wrap" name="firstName"/>
+
+														<span class="help-inline">Provide your FirstName</span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">LastName<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="text" class="span6 m-wrap" name="lastName"/>
+
+														<span class="help-inline">Provide your LastName</span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Remarks</label>
+
+													<div class="controls">
+
+														<textarea class="span6 m-wrap" rows="3" name="remarks"></textarea>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="tab-pane" id="tab3">
+
+												<h3 class="block">Provide your Security details</h3>
+
+												<div class="control-group">
+
+													<label class="control-label">Security Question<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="text" class="span6 m-wrap" name="securityQuestion" />
+
+														<span class="help-inline"></span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Security Answer<span class="required">*</span></label>
+
+													<div class="controls">
+
+														<input type="text" class="span6 m-wrap" name="securityAnswer"/>
+
+														<span class="help-inline"></span>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="tab-pane" id="tab4">
+
+												<h3 class="block">Confirm your account</h3>
+
+												<h4 class="form-section">Account</h4>
+
+												<div class="control-group">
+
+													<label class="control-label">Username:</label>
+
+													<div class="controls">
+
+														<span class="text display-value" data-display="username"></span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Email:</label>
+
+													<div class="controls">
+
+														<span class="text display-value" data-display="email"></span>
+
+													</div>
+
+												</div>
+
+												<h4 class="form-section">Profile</h4>
+
+												<div class="control-group">
+
+													<label class="control-label">FirstName:</label>
+
+													<div class="controls">
+
+														<span class="text display-value" data-display="firstName"></span>
+
+													</div>
+
+												</div>
+												
+												<div class="control-group">
+
+													<label class="control-label">LastName:</label>
+
+													<div class="controls">
+
+														<span class="text display-value" data-display="lastName"></span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Remarks:</label>
+
+													<div class="controls">
+
+														<span class="text display-value" data-display="remarks"></span>
+
+													</div>
+
+												</div>
+
+												<h4 class="form-section">Security details</h4>
+
+												<div class="control-group">
+
+													<label class="control-label">Security Question:</label>
+
+													<div class="controls">
+
+														<span class="text display-value" data-display="securityQuestion"></span>
+
+													</div>
+
+												</div>
+
+												<div class="control-group">
+
+													<label class="control-label">Security Answer:</label>
+
+													<div class="controls">
+
+														<span class="text display-value" data-display="securityAnswer"></span>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="form-actions clearfix">
+
+											<a href="javascript:;" class="btn button-previous">
+
+											<i class="m-icon-swapleft"></i> Back 
+
+											</a>
+
+											<a id="continue" href="javascript:;" class="btn blue button-next">
+
+											Continue <i class="m-icon-swapright m-icon-white"></i>
+
+											</a>
+
+											<a href="javascript:;" class="btn green button-submit">
+
+											Submit <i class="m-icon-swapright m-icon-white"></i>
+
+											</a>
+
+										</div>
+
+									</div>
+
+								</form>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE CONTENT-->         
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->
+
+		</div>
+
+		<!-- END PAGE -->  
+
+	</div>
+
+	<!-- END CONTAINER -->
+
+	<!-- BEGIN FOOTER -->
+
+	#parse("bottom.vm")
+
+	<!-- END FOOTER -->
+
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+	<!-- BEGIN CORE PLUGINS -->
+	<script src="$rc.contextPath/skin/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="$rc.contextPath/skin/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<!--[if lt IE 9]>
+	<script src="$rc.contextPath/skin/js/excanvas.min.js"></script>
+	<script src="$rc.contextPath/skin/js/respond.min.js"></script>  
+	<![endif]-->   
+	<script src="$rc.contextPath/skin/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="$rc.contextPath/skin/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="$rc.contextPath/skin/js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="$rc.contextPath/skin/js/jquery.uniform.min.js" type="text/javascript" ></script>
+	<!-- END CORE PLUGINS -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript" src="$rc.contextPath/skin/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$rc.contextPath/skin/js/additional-methods.min.js"></script>
+	<script type="text/javascript" src="$rc.contextPath/skin/js/jquery.bootstrap.wizard.min.js"></script>
+	<script type="text/javascript" src="$rc.contextPath/skin/js/chosen.jquery.min.js"></script>
+	<script type="text/javascript" src="$rc.contextPath/skin/js/select2.min.js"></script>
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script src="$rc.contextPath/skin/js/form-wizard.js"></script>     
+	<!-- END PAGE LEVEL SCRIPTS -->
+	<script>
+
+		jQuery(document).ready(function() {       
+
+		   // initiate layout and plugins
+
+		   FormWizard.init();
+
+		});
+
+	</script>
+	<!-- END JAVASCRIPTS -->   
+</body>
+<!-- END BODY -->
+</html>

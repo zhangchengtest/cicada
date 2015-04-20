@@ -1,0 +1,2 @@
+#set($layout="master/empty.vm")
+500

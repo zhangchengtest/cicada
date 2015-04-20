@@ -1,0 +1,95 @@
+﻿[
+    {
+        "id": 0,
+        "pid": "SecuryPay",
+        "pcode": "bank.unionpay",
+        "txncurrencies": "USD,ERU,JPY",
+        "stlcurrencies": "USD,ERU",
+        "cardnumber": "Y",
+        "dcc": "N",
+        "verify": "N",
+        "conntype": "Web",
+        "chncount": "10/20",
+        "bankacc": "硅谷银行<br>123456"
+    },
+    {
+
+        "id": 1,
+        "pid": "ExpressPay",
+        "pcode": "bank.unionpay",
+        "txncurrencies": "USD,ERU,JPY",
+        "stlcurrencies": "USD,ERU",
+        "cardnumber": "Y",
+        "dcc": "N",
+        "verify": "N",
+        "conntype": "直连",
+        "chncount": "10/20",
+        "bankacc": "硅谷银行<br>123456"
+    },
+    {
+        "id": 2,
+        "pid": "Merchant-hosted",
+        "pcode": "bank.unionpay",
+        "txncurrencies": "USD,ERU,JPY",
+        "stlcurrencies": "USD,ERU",
+        "cardnumber": "Y",
+        "dcc": "N",
+        "verify": "N",
+        "conntype": "直连",
+        "chncount": "10/20",
+        "bankacc": "硅谷银行<br>123456"
+    },
+    {
+        "id": 3,
+        "pid": "农行Moto",
+        "pcode": "bank.abc_moto",
+        "txncurrencies": "CNY",
+        "stlcurrencies": "CNY",
+        "cardnumber": "Y",
+        "dcc": "N",
+        "verify": "N",
+        "conntype": "直连",
+        "chncount": "18/20",
+        "bankacc": "农业银行<br>333456677"
+    },
+    {
+        "id": 4,
+        "pid": "建行3D",
+        "pcode": "bank.ccb_3d",
+        "txncurrencies": "CNY",
+        "stlcurrencies": "CNY",
+        "cardnumber": "N",
+        "dcc": "N",
+        "verify": "N",
+        "conntype": "Web",
+        "chncount": "0/0",
+        "bankacc": "建设银行<br>333456677"
+    },
+    {
+        "id": 5,
+        "pid": "KRP-DCC",
+        "pcode": "bank.krp_dcc",
+        "txncurrencies": "USD",
+        "stlcurrencies": "USD",
+        "cardnumber": "Y",
+        "dcc": "Y",
+        "verify": "N",
+        "conntype": "直连",
+        "chncount": "2/10",
+        "bankacc": "招商银行<br>333456677"
+    },
+    {
+
+        "id": 6,
+        "pid": "中银卡司",
+        "pcode": "bank.boci_moto",
+        "txncurrencies": "CNY",
+        "stlcurrencies": "CNY",
+        "cardnumber": "Y",
+        "dcc": "Y",
+        "verify": "N",
+        "conntype": "直连",
+        "chncount": "2/10",
+        "bankacc": "南粤银行<br>333456677"
+    }
+]

@@ -1,0 +1,84 @@
+ #set($page_title = "Acquirer List")
+ #set($page_header = "Acquirer List")
+ <link href="$!{rc.contextPath}/assets/css/dataTables.bootstrap.css" rel="stylesheet" />
+<div class="page-body">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="widget">
+                <div class="widget-header ">
+                    <span class="widget-caption">Acquirer List</span>
+                    <div class="widget-buttons">
+                        <a href="#" data-toggle="maximize">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                        <a href="#" data-toggle="collapse">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                        <a href="#" data-toggle="dispose">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body">
+					 <div class="table-toolbar">
+                                        <a id="editabledatatable_new" href="javascript:void(0);" class="btn btn-default" onclick="location='$!rc.contextPath/acquirer/add'">
+                                            Add New Acquirer
+                                        </a>
+                                    </div>
+                    <table class="table table-striped table-bordered table-hover" id="simpledatatable">
+                        <thead>
+                            <tr>
+                                <th>Acquirer Name</th>
+                                <th>Create Time</th>
+                                <th>Options</th>
+                                </tr>
+                       </thead>
+                    </table>
+					   
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+		
+	<script src="$!{rc.contextPath}/assets/js/datatable/jquery.dataTables.js"></script>
+    <script src="$!{rc.contextPath}/assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="$!{rc.contextPath}/assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="$!{rc.contextPath}/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+	<script src="$!{rc.contextPath}/assets/js/bootbox/bootbox.js"></script>
+	
+	<script>
+	
+       var oTable = $('#simpledatatable').dataTable({
+                "sDom": "lt<'row DTTTFooter'<'col-sm-6'i><'col-sm-6'p>>",
+                "iDisplayLength": 10,
+                "oTableTools": {
+                    "aButtons": [
+                        "copy", "csv", "xls", "pdf", "print"
+                    ],
+                    "sSwfPath": contextPath+"/assets/js/swf/copy_csv_xls_pdf.swf"
+                },
+                "language": {
+                    "url": contextPath+"/assets/i18n/pagination/pagination-"+locale+".txt"
+                },
+                "aaSorting": [],
+				"bProcessing": true,
+				"serverSide": true,
+			    "ajax": {
+					"url": contextPath+"/acquirer/search",
+					"type": "POST"
+                },
+				"columnDefs": [ { "data": "acquirerName", "targets": 0, "bSortable": false},
+					{ "data": "createDate" , "targets": 1, "bSortable": false },
+					{ "data": "id" , "targets": 2, "bSortable": false,
+						"mRender": function( data, type, full) {
+                       		var s='<a href="'+contextPath+'/acquirer/edit/'+ data +'" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i>Edit</a>';
+							var str1 = 'confirmDelete("/acquirer/delete/'+ data +'","'+ full.acquirerName+'")';
+							s+='   <a href="javascript:void(0);" class="btn btn-info btn-xs delete" onclick=\''+ str1 +'\'><i class="fa fa-trash-o"></i>Delete</a>';
+							
+							 return s;
+               		    }
+					}],
+            });
+		
+    </script>

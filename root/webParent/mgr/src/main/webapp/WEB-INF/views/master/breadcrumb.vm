@@ -1,0 +1,49 @@
+<div class="page-breadcrumbs">
+    <ul class="breadcrumb">
+        <li id="home_breadcrumb">
+            <i class="fa fa-home"></i>
+            <a href="#">Home</a>
+        </li>
+		
+        <li class="active" id="choose_breadcrumb">--</li>
+    </ul>
+</div>
+
+<script>
+	var liId = '$chosenMenuId';
+
+	$(function(){
+        var lis = $(".sidebar-menu").find("li");
+        var li;
+        for(var i = 0; i < lis.size(); i++)
+        {
+            li = lis.get(i);
+            if($(li).attr("id") == liId)
+            {
+				//left
+                $(li).attr("class","active");
+				//breadcrumb
+				$('#choose_breadcrumb').html($(li).find(".menu-text").html());
+                
+				var obj = $(li).parent().parent();
+				if(obj)
+                {
+				   highlight(obj);
+                }
+            }
+    		
+         }
+	});
+	
+	function highlight(li)
+	{
+		$(li).attr("class","active open");
+		  var obj = '<li > <a href="#">'+ $(li).find(".menu-text").html() +'</a>  </li>';
+		$(obj).insertAfter($('#home_breadcrumb'));
+		if($(li).parent().parent()[0].nodeName == "LI")
+		{
+			highlight($(li).parent().parent());
+		}
+	}
+   
+</script>

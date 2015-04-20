@@ -1,0 +1,127 @@
+#set($page_title="merchant inquery")
+#set($page_header = "merchant inquery")
+<div class="page-body">
+	<div class="col-lg-12 col-sm-12 col-xs-12">
+		<div class="well">
+		    <div id="registration-form">
+			    <form role="form">
+				<div class="form-title">
+				Query condition
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="exampleInputEmail2">Merchant ID</label>
+							<span class="input-icon icon-right">
+								<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Enter mid">
+								<i class="fa fa-envelope blue"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="exampleInputName2">Name</label>
+							<span class="input-icon icon-right">
+								<input type="text" class="form-control" id="exampleInputName2" placeholder="Merchant Name">
+								<i class="glyphicon glyphicon-user palegreen"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="exampleInputName2">Status</label>
+							<span class="input-icon icon-right">
+								<input type="text" class="form-control" id="exampleInputName2" placeholder="Merchant Status">
+								<i class="glyphicon glyphicon-user palegreen"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="exampleInputName2">Branch</label>
+							<div>
+								<select class="form-control" name="branch" data-bv-field="country">
+									<option value=""> All </option>
+									<option value=""> US branch </option>
+									<option value="FR"> China branch </option>
+									<option value="DE"> Japan branch </option>
+								</select><i class="form-control-feedback" data-bv-field="country" style="display: none;"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="exampleInputName2">Regdate start</label>
+							<div class="input-group">
+								<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+								<span class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="exampleInputName2">Regdate end</label>
+							<div class="input-group">
+								<input class="form-control date-picker" id="id-date-picker-2" type="text" data-date-format="dd-mm-yyyy">
+								<span class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+					<label for="exampleInputName2"></label>
+						<div class="form-group">
+							<button id ="qbutton" type="button" class="btn btn-blue">Submit</button>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		       
+		    </div>
+            <div class="table-responsive">
+                 <!-- bootstrap table-->
+				<table id="merview" class="table table-bordered table-striped table-condensed flip-content" table-header="false"  data-pagination="true" data-page-size="20" data-page-list="[10, 20, 50, 100, 200]">
+					<thead class="bordered-darkorange">
+						<tr>
+							<th data-field="id">#</th>
+							<th data-field="mid"><i class="fa fa-briefcase"></i> Merchant ID</th>
+							<th data-field="name">Name</th>
+							<th data-field="branch">Branch</th>
+							<th data-field="regdate">Regist date</th>
+							<th data-field="status">Status</th>
+						</tr>
+					</thead>
+					
+					</tbody>
+				</table>
+            <!--/ bootstrap table-->
+            </div>
+		</div>
+	</div>
+</div>
+ <!--Bootstrap Date Picker-->
+    <script src="assets/js/datetime/bootstrap-datepicker.js"></script>
+    <!-- bootstrap table Script-->
+	<link rel="stylesheet" href="assets/bootstrap-table/bootstrap-table.min.css">
+	<script src="assets/bootstrap-table/bootstrap-table.min.js"></script>
+
+     <!--merchant inquery function -->
+	<script>
+	    var $table = $('#merview');		//get table by id
+
+	    $(function () {
+	        $table.bootstrapTable();
+	        //set click event to query button
+	        $('#qbutton').click(function () {
+	            $table.bootstrapTable('refresh', { url: 'assets/data/mer-query-list.json' });
+	        });
+	    });
+	    //init datepick input text
+	    $('.date-picker').datepicker();
+</script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>Jump</title>
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	#parse("common.vm")
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+
+	<!-- BEGIN CONTAINER -->
+
+		<!-- BEGIN PAGE -->  
+
+		<div class="page">
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE CONTENT-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<div class="portlet-body form">
+
+								<div class="form-wizard">
+
+									<div class="navbar steps">
+
+										<div class="navbar-inner">
+											
+											<h3 class="page-title">
+												
+												<div id="jumpNotice">
+													
+												</div>
+												
+												<div id="jumpTime">
+													
+												</div>
+												
+												<div id="jumpUrl">
+													
+												</div>
+												
+                                            </h3>
+											
+										</div>
+											
+									</div>
+											
+								</div>
+								
+						</div>
+						
+					</div>
+
+				</div>
+
+				<!-- END PAGE CONTENT-->         
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->
+
+		</div>
+
+		<!-- END PAGE -->  
+
+	</div>
+
+	<!-- END CONTAINER -->
+
+	<!-- BEGIN FOOTER -->
+
+	#parse("bottom.vm")
+
+	<!-- END FOOTER -->
+</body>
+<!-- END BODY -->
+<script type="text/javascript">
+	var msgPage = eval("("+"${msgPage}"+")");
+		if(msgPage.msg == "error") {
+			$("#jumpNotice").html("对不起，申请账户失败，页面");
+			$("#jumpTime").html("5s");
+			$("#jumpUrl").html("后自动跳转。若自动跳转失败，请点击访问：<a href='$rc.contextPath/user/apply'>重新申请</a>.");
+		}
+		if(msgPage.msg == "success") {
+			$("#jumpNotice").html("申请账户成功，页面");
+			$("#jumpTime").html("5s");
+			$("#jumpUrl").html("后自动跳转。若自动跳转失败，请点击访问：<a href='$rc.contextPath/tologin'>登陆</a>.");
+		}
+		
+		var timeIndex = 5;
+		var timeId;
+		function jumpPage() {
+			if(timeIndex != 0) {
+				$("#jumpTime").html(timeIndex + "s");
+				timeIndex--;
+			} else {
+				window.clearInterval(timeId);
+				if(msgPage.msg == "error") {
+					window.location.href = "$rc.contextPath/user/application";
+				}
+				if(msgPage.msg == "success") {
+					window.location.href = "$rc.contextPath/tologin";
+				}
+			}
+		}
+		timeId = window.setInterval('jumpPage()',1000);
+</script>
+</script>
+</html>

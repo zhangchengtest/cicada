@@ -1,0 +1,51 @@
+ <link rel="stylesheet" href="$!{rc.contextPath}/assets/js/jsTree/dist/themes/proton/style.css" />
+    <link rel="stylesheet" href="$!{rc.contextPath}/assets/js/jsTree/docs.css" />
+    <!--[if lt IE 9]><script src="./assets/respond.js"></script><![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" href="$!{rc.contextPath}/assets/js/jsTree/apple-touch-icon-precomposed.png" />
+    <script src="$!{rc.contextPath}/assets/js/jsTree/dist/jstree.min.js"></script>
+
+    <style>
+        .proton-demo{
+            max-width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+        }
+    </style>
+<div class="col-md-4">
+                        <div id="jstree-proton-3" style="margin-top:20px;" class="proton-demo"></div>
+                    </div>
+ <script>
+  $('#jstree-proton-3').jstree({
+            'plugins': ["wholerow", "checkbox"],
+            'core': {
+                'data': [{
+                        "text": "all right",
+                        "children": [{
+                            "text": "initially selected",
+                            "state": {
+                                "selected": true
+                            }
+                        }, {
+                            "text": "custom icon URL",
+                            "icon": "glyphicon glyphicon-leaf"
+                        }, {
+                            "text": "initially open",
+                            "state": {
+                                "opened": true
+                            },
+                            "children": ["Another node"]
+                        }, {
+                            "text": "custom icon class",
+                            "icon": "glyphicon glyphicon-leaf"
+                        }]
+                    },
+                    "And wholerow selection"
+                ],
+                'themes': {
+                    'name': 'proton',
+                    'responsive': true
+                }
+            }
+        });
+    </script>
