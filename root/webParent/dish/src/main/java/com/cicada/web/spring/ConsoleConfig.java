@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConsoleConfig {
 
+	/**
+	 * 
+	 */
 	private static final Logger logger = LoggerFactory.getLogger(ConsoleConfig.class);
 
 }
