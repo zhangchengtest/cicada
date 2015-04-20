@@ -43,7 +43,7 @@ public class DishController {
 			return new BaseResult(dish);
 		} catch (Exception e) {
 			logger.error("search dish error", e);
-			return new BaseResult(request, MessageEnum.SYSTEM_IS_BUSY);
+			return new BaseResult(request, MessageEnum.SYSTEM_IS_BUSY, false);
 		}
 	}
 }
