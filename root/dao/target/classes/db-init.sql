@@ -1,1 +1,0 @@
-create table dish ( dish_id , photo1, photo2, photo3, title , owner_id, update_date, create_date);
