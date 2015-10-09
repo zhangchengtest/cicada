@@ -1,6 +1,9 @@
 package com.cicada.web.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +23,7 @@ import com.cicada.core.model.dish.Dish;
 import com.cicada.service.api.CRUDService;
 import com.cicada.service.exception.RuntimeServiceException;
 import com.cicada.service.exception.ServiceException;
+import com.cicada.utils.SecurityUtils;
 import com.cicada.web.vo.TreeData;
 import com.cicada.web.vo.TreeDataState;
 
@@ -28,7 +32,7 @@ import com.cicada.web.vo.TreeDataState;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	@Autowired
 	private CRUDService crudService;
 
@@ -41,7 +45,7 @@ public class HomeController {
 		}
 		return new ModelAndView("index");
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("testService")
 	public String testService(HttpServletRequest request, HttpServletResponse response) {
@@ -87,5 +91,26 @@ public class HomeController {
 	public ModelAndView left(HttpServletRequest request, HttpServletResponse response) {
 
 		return new ModelAndView("left");
+	}
+
+	@RequestMapping("validateWX")
+	@ResponseBody
+	public String validateWX(HttpServletRequest request, String signature, String timestamp, String nonce,
+			String echostr) {
+
+		List<String> list = new ArrayList<String>();
+		list.add("cicada");
+		list.add(timestamp);
+		list.add(nonce);
+		Collections.sort(list);
+
+		String str = list.get(0) + list.get(1) + list.get(2);
+		String str1 = SecurityUtils.SHA1(str, "utf-8");
+
+		if (str1.equals(signature)) {
+			return echostr;
+		} else {
+			return "";
+		}
 	}
 }

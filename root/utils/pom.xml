@@ -72,5 +72,23 @@
 			<artifactId>bcprov-jdk15on</artifactId>
 			<version>${lib.bcprov-jdk15on.version}</version>
 		</dependency>
+		
+		<dependency>
+	<groupId>org.htmlparser</groupId>
+	<artifactId>htmlparser</artifactId>
+	<version>1.6</version>
+</dependency>
+<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${lib.httpclient.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+		
 	</dependencies>
 </project>
