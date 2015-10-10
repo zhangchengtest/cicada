@@ -192,7 +192,7 @@
 		<lib.velocity-tools.version>2.0</lib.velocity-tools.version>
 		<lib.httpclient.version>4.4</lib.httpclient.version>
 		<lib.google.code.kaptcha.version>2.3.2</lib.google.code.kaptcha.version>
-			<finalName>${project.artifactId}-${project.version}-${maven.build.timestamp}</finalName> 
+		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 	</properties>
 	<prerequisites>
 		<maven>2.2.1</maven>
