@@ -123,7 +123,6 @@
   	<module>service</module>
   	<module>core</module>
   	<module>utils</module>
-  	<module>html</module>
   	<module>mvcTemplate</module>
   	<module>webParent</module>
   </modules>
