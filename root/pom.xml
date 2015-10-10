@@ -121,7 +121,6 @@
   	<module>dao</module>
   	<module>api</module>
   	<module>service</module>
-  	<module>appWeb</module>
   	<module>core</module>
   	<module>utils</module>
   	<module>html</module>
