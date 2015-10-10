@@ -18,7 +18,7 @@ public class ServiceContainer extends WebConfigTemplate{
 
 	private static final Logger logger = LoggerFactory.getLogger(ServiceContainer.class);
 	private static HessianProxyFactory factory = createProxyFactory();
-	public static final String SVR_BASE_URL = "http://127.0.0.1:8080/appWeb";
+	public static final String SVR_BASE_URL = "http://127.0.0.1:8081/appWeb";
 	
 	private static HessianProxyFactory createProxyFactory() {
 		HessianProxyFactory factory = new HessianProxyFactory();
