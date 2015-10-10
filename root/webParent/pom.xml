@@ -9,7 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>mgr</module>
-  	<module>serviceWeb</module>
   	<module>appWeb</module>
   	<module>dish</module>
   </modules>
